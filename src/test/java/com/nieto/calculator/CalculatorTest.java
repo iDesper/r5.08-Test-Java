@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CalculatorTest {
@@ -83,5 +86,23 @@ class CalculatorTest {
 
         // THEN
         assertThat(resultat).isEqualTo(result);
+    }
+
+    @Test
+    void devrait_renvoyer_ensemble()
+    {
+        // GIVEN
+        //int a = 7679;
+        int b = -11;
+        Set<Integer> predit = new HashSet<Integer>();
+        //predit.add(6);
+        //predit.add(7);
+        predit.add(1);
+
+        // WHEN
+        Set<Integer> resultat = calc.ensembleChiffres(b);
+
+        // THEN
+        assertThat(resultat).isEqualTo(predit);
     }
 }
